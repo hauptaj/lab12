@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+
+    </script>
+</head>
+
+<body>
+
+
+      <!--THE VIEW.-->
+      <div ng-app="myApp"
+
+          ng-init="list=[
+              { item:'Bank' },
+              { item:'Dry Cleaner' },
+              { item:'Pharmacy' }]"
+
+          ng-controller="myController">
+
+          <!-- <div> -->
+          <div class="title">
+
+              <h3>To-Do List</h3>
+
+              <!-- LOOP.-->
+              <ul ng-repeat="errands in list">
+                  <li>{{ errands.item }}</li>
+              </ul>
+          </div>
+
+    <div class="form">
+              <input type="text" ng-model="item" placeholder="Enter the Item" />
+
+              <p><button ng-click="add()">Add the Item</button></p>
+          </div>
+      </div>
+
+
+</body>
+
+
+<script>
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('myController', ['$scope', function ($errands) {
+            $errands.add = function ()
+            {
+                if (angular.isDefined($errands.item) && $errands.item != '')
+                {
+                    // ADD A NEW ELEMENT.
+                    $errands.list.push({ item: $errands.item });
+
+                    // CLEAR THE FIELDS.
+                    $errands.item = '';
+
+                }
+            }
+        }]
+    );
+</script>
+</html>

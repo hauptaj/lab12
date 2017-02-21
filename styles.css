@@ -1,0 +1,21 @@
+body {
+  color: grey;
+  font-family: arial, sans-serif;
+}
+
+.title {
+  float:left;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+h3 {
+  color: salmon;
+  font-family: times, serif;
+  font-size: 24px;
+}
+
+.form {
+  float: left;
+  margin: 80px;
+}
